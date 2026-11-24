@@ -1,0 +1,190 @@
+{
+  "checked": "2026-11-24T03:58:12Z",
+  "links": {
+    "https://faucet.celo.org/": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://faucet.polygon.technology/": {
+      "blocked": true,
+      "code": 403,
+      "state": "up"
+    },
+    "https://portal.polygon.technology/faucet": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/aleo-aleo": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/aleo-aleo-testnet": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/aptos-apt": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/arbitrum-eth": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/archway-testnet-const": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/avail-avail": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/avalanche-avax": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/base-eth": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/bnb-chain-bnb": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/celestia-tia": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/celo-celo": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/cosmos-atom": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/dymension-dym": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/ethereum-hoodi-testnet-eth": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/ethereum-mainnet-eth": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/ethereum-sepolia-testnet-eth": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/fetchai-fet": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/fuse-fuse": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/gnosis-chain-xdai": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/hyperliquid-hype": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/kucoin-kcs": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/monad-mon": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/near-near": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/optimism-eth": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/oraichain-orai": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/osmosis-osmo": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/pharos-atlantic-testnet-phrs": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/pharos-pros": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/polygon-pol": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/secret-network-scrt": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/solana-sol": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/solana-testnet-sol": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/somnia-somi": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/somnia-testnet-stt": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/sonic-s": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/starknet-eth": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/story-ip": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/sui-sui": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/sui-testnet-sui": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/taiko-eth": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/telos-evm-tlos": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://stakely.io/faucet/walrus-testnet-wal": {
+      "code": 200,
+      "state": "up"
+    },
+    "https://www.bnbchain.org/en/testnet-faucet": {
+      "code": 200,
+      "state": "up"
+    }
+  }
+}

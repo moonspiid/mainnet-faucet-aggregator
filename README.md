@@ -48,6 +48,7 @@ Faucet search results are full of pages that ask you to stake, connect a wallet 
 - **Mainnet and testnet kept apart** — two counters next to the title (34 and 11), a filter for each, and a badge on every card.
 - **Search across chains and tokens** — type `POL`, `SUI` or `SEPOLIA` and the grid narrows as you type; `/` focuses the field, `Esc` clears it.
 - **Dead faucets are flagged, not hidden** — Ethereum and Solana mainnet were dry at the time of the check: their card shows the amount struck through, an `inactive` tag and a dashed border.
+- **Availability checked daily** — a scheduled workflow asks every link for an answer and writes `status.json`; a link that stops answering gets a `No answer` tag, and the refresh button in front of `Directory` reads that file again so you never trust a stale tab.
 - **Direct links only** — no affiliate hop, no redirect domain, no wallet connection. The domain printed at the bottom of each card is the domain you land on.
 - **Installable and offline** — the whole directory is one HTML file cached by a service worker, so it opens with no network.
 - **Light and dark themes** — follows the system setting, with a manual toggle.
@@ -72,6 +73,9 @@ It then runs in its own window and keeps the full directory available offline.
 - `index.html` — the whole page: hero, card grid, filters, footer, and one inline script for the theme, the counters and the copy buttons.
 - `tools/faucets.json` — the data: one object per faucet with `name`, `token`, `provider`, `amount`, `url`, `host`, `network`, `status`, and optionally `note` and `extra` links.
 - `tools/build.py` — rewrites the grid between `<!-- grid:start -->` and `<!-- grid:end -->` from that JSON, and refreshes the two counters. Standard library only; `python3 tools/build.py`.
+- `tools/check-links.py` — asks every URL in `faucets.json` for an answer and writes `status.json` (`up`, `down`, `gone`, with the HTTP code). Server side, because Stakely sends `Cross-Origin-Resource-Policy: same-origin` and a browser fetch cannot read the outcome.
+- `.github/workflows/check-links.yml` — runs that script every day at 05:17 UTC, and commits `status.json` only when an answer changed.
+- `status.json` — the last answers, timestamped; the page reads it on load and again when you press the refresh button.
 - `sw.js` — the service worker: cache-first for the shell, revalidation of navigations so a new deploy is picked up. Bump `VERSION` when the page changes.
 - `manifest.webmanifest` — the PWA metadata; icons come from `icons/`, and `tools/make-icons.py` redraws the PNGs from the geometry of `icon.svg`.
 - Pushing to `main` republishes the site through GitHub Pages.

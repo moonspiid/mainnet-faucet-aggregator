@@ -1,7 +1,7 @@
-const VERSION = "v9";
+const VERSION = "v10";
 const CACHE = "faucets-" + VERSION;
 const ROOT = new URL("./", self.location).href;
-const SHELL = ["", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/icon.svg"];
+const SHELL = ["", "index.html", "status.json", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/icon.svg"];
 
 self.addEventListener("install", function (event) {
   event.waitUntil(
