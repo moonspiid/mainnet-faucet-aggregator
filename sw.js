@@ -27,14 +27,18 @@ self.addEventListener("fetch", function (event) {
   if (request.mode === "navigate") {
     event.respondWith(
       caches.open(CACHE).then(function (cache) {
-        return fetch(request).then(function (fresh) {
-          cache.put(new URL("index.html", ROOT).href, fresh.clone());
-          return fresh;
-        }).catch(function () {
+        var cached = function () {
           return cache.match(new URL("index.html", ROOT).href).then(function (hit) {
             return hit || Response.error();
           });
-        });
+        };
+        return fetch(request).then(function (fresh) {
+          if (fresh && fresh.ok) {
+            cache.put(new URL("index.html", ROOT).href, fresh.clone());
+            return fresh;
+          }
+          return cached();
+        }).catch(cached);
       })
     );
     return;
