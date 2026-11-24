@@ -10,6 +10,8 @@
   <img alt="installable PWA" src="https://img.shields.io/badge/pwa-installable-ea7a15?labelColor=30363d">
   <img alt="works offline" src="https://img.shields.io/badge/offline-ready-3fb950?labelColor=30363d">
   <img alt="price, free" src="https://img.shields.io/badge/price-free-2ea043?labelColor=30363d">
+  <br>
+  <img alt="MIT license" src="https://img.shields.io/badge/license-MIT-2ea043?labelColor=30363d">
 </p>
 
 **Pick a network, land on the faucet, claim.** A one-page directory of official faucet claim pages — 42 Stakely networks plus Polygon, BNB Chain and Celo — with the amount each one pays printed on its card.
@@ -34,6 +36,7 @@
 - [Good to know](#good-to-know)
 - [Contributors](#contributors)
 - [Support this project](#support-this-project)
+- [License](#license)
 
 ## Why
 
@@ -119,3 +122,7 @@ This is a plain EVM address, so **the same address works on every EVM network**.
 | Optimism | USDT |
 
 Two rules: send **USDT only** (another token sent to this address cannot be recovered), and keep a little of the network's own coin (BNB, ETH, POL) in your wallet to pay the transfer fee. A non-EVM network such as Tron (TRC20) uses a different address format, so nothing sent there reaches this one.
+
+## License
+
+[MIT](LICENSE) © 2026 moonspiid — use it, modify it, ship it.
