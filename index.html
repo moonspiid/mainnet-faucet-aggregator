@@ -192,7 +192,7 @@
   .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted);pointer-events:none}
   .search input{
     font:inherit;font-size:14px;
-    width:min(300px,72vw);
+    width:min(280px,72vw);
     padding:10px 12px 10px 36px;
     color:var(--text);background:var(--surface);
     border:1px solid var(--border-strong);border-radius:10px;
@@ -1651,8 +1651,10 @@
       if (down) dead++;
     });
     if (checkedEl && status && status.checked) {
+      var count = Object.keys(links).length;
       checkedEl.hidden = false;
-      checkedEl.textContent = "links checked " + ago(status.checked);
+      checkedEl.textContent = "checked " + ago(status.checked);
+      checkedEl.title = count + " links, checked " + status.checked.replace("T", " ").replace("Z", " UTC");
     }
     return dead;
   }
