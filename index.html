@@ -1662,12 +1662,21 @@
 
   var toTop = document.getElementById("to-top");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var hero = document.querySelector(".hero");
 
-  function syncToTop() {
-    toTop.classList.toggle("show", window.scrollY > 600);
+  function showToTop(visible) {
+    toTop.classList.toggle("show", visible);
   }
-  syncToTop();
-  window.addEventListener("scroll", syncToTop, { passive: true });
+
+  if ("IntersectionObserver" in window && hero) {
+    new IntersectionObserver(function (entries) {
+      showToTop(!entries[0].isIntersecting);
+    }, { rootMargin: "-120px 0px 0px 0px" }).observe(hero);
+  } else {
+    var syncToTop = function () { showToTop(window.scrollY > 600); };
+    syncToTop();
+    window.addEventListener("scroll", syncToTop, { passive: true });
+  }
 
   toTop.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
