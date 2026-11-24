@@ -512,10 +512,10 @@
   "host": "faucet.polygon.technology",
   "network": "mainnet",
   "status": "active",
-  "note": "Faucet officiel Polygon. Sélectionnez le réseau dans la page avant de réclamer.",
+  "note": "Official Polygon faucet. Pick the network inside the page before you claim.",
   "extra": [
    {
-    "label": "Portail Polygon",
+    "label": "Polygon Portal",
     "url": "https://portal.polygon.technology/faucet"
    }
   ]
@@ -529,10 +529,10 @@
   "host": "bnbchain.org",
   "network": "testnet",
   "status": "active",
-  "note": "Faucet officiel BNB Chain : tBNB de test uniquement. Le BNB mainnet passe par la page Stakely.",
+  "note": "Official BNB Chain faucet: testnet tBNB only. Mainnet BNB is on the Stakely page.",
   "extra": [
    {
-    "label": "BNB mainnet (Stakely)",
+    "label": "Mainnet BNB (Stakely)",
     "url": "https://stakely.io/faucet/bnb-chain-bnb"
    }
   ]
@@ -546,10 +546,10 @@
   "host": "faucet.celo.org",
   "network": "testnet",
   "status": "active",
-  "note": "Faucet officiel Celo : CELO de test (Sepolia). Le CELO mainnet passe par la page Stakely.",
+  "note": "Official Celo faucet: testnet CELO (Sepolia). Mainnet CELO is on the Stakely page.",
   "extra": [
    {
-    "label": "CELO mainnet (Stakely)",
+    "label": "Mainnet CELO (Stakely)",
     "url": "https://stakely.io/faucet/celo-celo"
    }
   ]

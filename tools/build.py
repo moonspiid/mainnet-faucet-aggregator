@@ -1,4 +1,4 @@
-"""Régénère la grille de l'annuaire dans index.html à partir de tools/faucets.json.
+"""Rebuilds the directory grid dans index.html à partir de tools/faucets.json.
 
     python3 tools/build.py
 
@@ -29,13 +29,13 @@ COPY = (
 
 
 def reward(item):
-    flag = '<em class="flag">inactif</em>' if item.get("status") != "active" else ""
+    flag = '<em class="flag">inactive</em>' if item.get("status") != "active" else ""
     if item.get("amount"):
         return (
-            '          <p class="reward"><strong>%s</strong><span>par réclamation</span>%s</p>'
+            '          <p class="reward"><strong>%s</strong><span>per claim</span>%s</p>'
             % (item["amount"], flag)
         )
-    return '          <p class="reward"><span>montant variable selon le réseau</span>%s</p>' % flag
+    return '          <p class="reward"><span>amount varies by network</span>%s</p>' % flag
 
 
 def card(item):
@@ -55,19 +55,19 @@ def card(item):
             <span class="mark" aria-hidden="true">{letter}</span>
             <div class="card-title">
               <h3>{name}</h3>
-              <p>{token} · faucet {provider}</p>
+              <p>{token} · {provider} faucet</p>
             </div>
             <span class="badge {network}">{badge}</span>
           </div>
 {reward}{note}
           <ul class="links">
-            <li><a class="cta" href="{url}" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet{arrow}</a></li>
+            <li><a class="cta" href="{url}" target="_blank" rel="noopener noreferrer nofollow">Open the faucet{arrow}</a></li>
           </ul>{extra}
           <div class="card-foot">
             <span class="host">{host}</span>
-            <button class="copy" type="button" data-copy="{url}" aria-label="Copier le lien {name}">
+            <button class="copy" type="button" data-copy="{url}" aria-label="Copy the {name} link">
               {copy}
-              Copier
+              Copy
             </button>
           </div>
         </article>""".format(

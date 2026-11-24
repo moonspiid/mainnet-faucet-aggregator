@@ -1,95 +1,123 @@
 # Mainnet Faucet Aggregator
 
-Annuaire statique, en une seule page, qui pointe directement vers les pages de
-réclamation des faucets officiels. Aucun lien de staking, aucune redirection
-intermédiaire : un clic, vous êtes sur le faucet.
+A single static page that links straight to the claim pages of official
+faucets. No staking links, no intermediate redirects: one click and you are on
+the faucet.
 
-Le site est une PWA installable et fonctionne hors ligne une fois chargé.
+The site is an installable PWA and keeps working offline once loaded.
 
-## Ce que contient le dépôt
+## What's in this repo
 
 ```
-index.html               page unique (design, contenu, filtres)
-manifest.webmanifest     métadonnées PWA (nom, icônes, couleurs)
-sw.js                    service worker (cache de la page + icônes)
-icons/                   icônes PNG + SVG (source vectorielle)
-tools/make-icons.py      génère les PNG depuis la géométrie de icon.svg
-tools/faucets.json       données de l'annuaire (nom, token, montant, lien, réseau)
-tools/build.py           régénère la grille de index.html depuis faucets.json
+index.html               the whole page (design, content, filters)
+manifest.webmanifest     PWA metadata (name, icons, colours)
+sw.js                    service worker (caches the page and the icons)
+icons/                   PNG + SVG icons (vector source)
+donate-usdt-qr.png       QR code shown in the donation section
+tools/make-icons.py      renders the PNGs from the geometry of icon.svg
+tools/faucets.json       directory data (name, token, amount, link, network)
+tools/build.py           rewrites the grid in index.html from faucets.json
 ```
 
-Le site publié ne dépend de rien : `index.html` est autonome et s'ouvre tel
-quel. `tools/build.py` sert uniquement à réécrire la grille quand les données
-changent (bibliothèque standard uniquement).
+The published site depends on nothing: `index.html` is self-contained and opens
+as is. `tools/build.py` only rewrites the grid when the data changes, and uses
+the standard library alone.
 
-## Annuaire actuel
+## Current directory
 
-45 faucets, tous relevés le 24/11/2026 : **34 mainnet** et **11 testnet**.
-Cela couvre les 42 pages de Stakely plus trois pages officielles (Polygon, BNB
-Chain, Celo). La liste Stakely vient de `stakely.io/sitemap.xml`, qui expose les
-42 pages `/faucet/<réseau>-<token>` ; chacune a été ouverte pour relever le
-montant affiché (« You will get… ») et son état.
+45 faucets, all checked on 24 November 2026: **34 mainnet** and **11 testnet**.
+That covers the 42 Stakely pages plus three official pages (Polygon, BNB Chain,
+Celo). The Stakely list comes from `stakely.io/sitemap.xml`, which exposes the
+42 `/faucet/<network>-<token>` pages; each one was opened to record the amount it
+prints ("You will get…") and its status.
 
-La source de vérité est `tools/faucets.json` : un objet par faucet, avec
-`name`, `token`, `provider`, `amount`, `url`, `host`, `network`
-(`mainnet`/`testnet`), `status` (`active`/`inactive`) et éventuellement `note`
-et `extra` (liens secondaires). La page est générée à partir de ce fichier, donc
-les deux compteurs du titre restent justes automatiquement.
+The source of truth is `tools/faucets.json`: one object per faucet with `name`,
+`token`, `provider`, `amount`, `url`, `host`, `network` (`mainnet`/`testnet`),
+`status` (`active`/`inactive`) and optionally `note` and `extra` (secondary
+links). The page is generated from that file, so the two counters next to the
+title stay correct on their own.
 
-Deux faucets sont marqués **inactif** au relevé (Ethereum mainnet, Solana
-mainnet) : la carte reste affichée, montant barré et bordure pointillée, pour
-éviter d'envoyer quelqu'un sur une page à sec sans prévenir.
+Two faucets were marked **inactive** at the time of the check (Ethereum mainnet,
+Solana mainnet): the card stays visible, with the amount struck through and a
+dashed border, rather than silently sending someone to a dry page.
 
-## Mettre à jour un lien
+## Update a link
 
-1. Éditer `tools/faucets.json` : ajouter, retirer ou corriger une entrée.
-2. Lancer `python3 tools/build.py` : la grille entre `<!-- grid:start -->` et
-   `<!-- grid:end -->` est réécrite, ainsi que les compteurs du titre. Le reste
-   de `index.html` (CSS, JS, textes) n'est pas touché.
-3. Mettre à jour la date de relevé dans le pied de page.
-4. Incrémenter `VERSION` dans `sw.js` pour que les visiteurs récupèrent la
-   nouvelle version du cache.
+1. Edit `tools/faucets.json`: add, remove or fix an entry.
+2. Run `python3 tools/build.py`: the grid between `<!-- grid:start -->` and
+   `<!-- grid:end -->` is rewritten, along with the counters. Nothing else in
+   `index.html` (CSS, JS, copy) is touched.
+3. Update the check date in the footer.
+4. Bump `VERSION` in `sw.js` so returning visitors pick up the new cache.
 
-Les compteurs « N mainnet » et « N testnet » à côté du titre sont calculés au
-chargement à partir de `data-network` : ajouter ou retirer une carte met les
-compteurs à jour sans autre intervention. L'année du copyright suit l'horloge du
-visiteur.
+The "N mainnet" and "N testnet" counters next to the title are computed at load
+from `data-network`: adding or removing a card updates them without further
+work. The copyright year follows the visitor's clock.
 
-## Réseaux sociaux
+## Social links
 
-Le pied de page affiche X et GitHub, les deux liens vérifiés sur le profil
-`moonspiid`. Pour en ajouter un, copier un `<li>` du bloc `<ul class="socials">`
-et remplacer le `href`, l'`aria-label` et le tracé SVG (24 × 24, `fill`
-hérité de `currentColor`). Ajouter Telegram, Discord ou YouTube revient donc à
-une ligne par réseau.
+The footer shows X and GitHub, the two links verified on the `moonspiid`
+profile. To add another, copy an `<li>` from the `<ul class="socials">` block and
+replace the `href`, the `aria-label` and the SVG path (24 × 24, `fill` inherited
+from `currentColor`). Adding Telegram, Discord or YouTube is one line per
+network.
 
-## Publier sur GitHub Pages
+## Support this project
+
+The site is free, has no account, no ads and no tracking, and there is no paid tier to upsell. If it saves you time, a donation pays for the hours behind it and the next features.
+
+**Donate in USDT →** one crypto address, no card, no account, no payment processor in between.
+
+<p align="center">
+  <img src="donate-usdt-qr.png" alt="QR code of the EVM donation address" width="200">
+  <br>
+  <sub>Scan with any wallet app</sub>
+</p>
+
+```
+0xA2700896E16BE762467D458F2b45260f8FAC9F3e
+```
+
+This is a plain EVM address, so **the same address works on every EVM network**. Send USDT on whichever one suits you:
+
+| Network | Token |
+| --- | --- |
+| BNB Smart Chain (BEP20) | USDT |
+| Ethereum (ERC20) | USDT |
+| Polygon | USDT |
+| Arbitrum One | USDT |
+| Base | USDT |
+| Optimism | USDT |
+
+Two rules: send **USDT only** (another token sent to this address cannot be recovered), and keep a little of the network's own coin (BNB, ETH, POL) in your wallet to pay the transfer fee. A non-EVM network such as Tron (TRC20) uses a different address format, so nothing sent there reaches this one.
+
+## Publish to GitHub Pages
 
 ```bash
-# depuis le dépôt cloné, une fois le dépôt distant créé
+# from the cloned repo, once the remote exists
 git push -u origin main
 
-# activer Pages sur la branche main, racine du dépôt
+# enable Pages on the main branch, repo root
 gh api -X POST repos/<owner>/mainnet-faucet-aggregator/pages \
   -f 'source[branch]=main' -f 'source[path]=/'
 ```
 
-Le site est alors servi sur `https://<owner>.github.io/mainnet-faucet-aggregator/`.
-Tous les chemins du projet sont relatifs, l'application fonctionne aussi bien à
-la racine d'un domaine que dans un sous-dossier.
+The site is then served at `https://<owner>.github.io/mainnet-faucet-aggregator/`.
+Every path in the project is relative, so the app works both at a domain root
+and in a subfolder.
 
-## Icônes
+## Icons
 
 ```bash
 python3 tools/make-icons.py
 ```
 
-Le script n'utilise que la bibliothèque standard (pas de Pillow). Il produit
-`icon-192.png`, `icon-512.png`, `icon-maskable-512.png` et
-`apple-touch-icon.png`. `icons/icon.svg` reste la référence visuelle.
+The script uses the standard library only (no Pillow). It writes
+`icon-192.png`, `icon-512.png`, `icon-maskable-512.png` and
+`apple-touch-icon.png`. `icons/icon.svg` remains the visual reference.
 
-## Avertissement
+## Disclaimer
 
-Les faucets changent de réseaux, de limites et de règles sans préavis. Les liens
-sont vérifiés à la date indiquée dans le pied de page, sans garantie. Un faucet ne
-demande jamais de phrase de récupération, et cette page ne connecte aucun wallet.
+Faucets change networks, limits and rules without notice. Links are checked on
+the date shown in the footer, with no guarantee. A faucet never asks for a
+recovery phrase, and this page never connects a wallet.
