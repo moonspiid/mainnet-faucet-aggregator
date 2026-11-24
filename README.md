@@ -20,16 +20,33 @@ Aucune dépendance, aucun build, aucun script tiers : le site s'ouvre tel quel.
 
 ## Annuaire actuel
 
-| Faucet | Réseau | Lien |
-| --- | --- | --- |
-| Stakely Faucet | Mainnet (multi-chaînes) | https://stakely.io/faucet |
-| Polygon Faucet | Mainnet (POL) | https://faucet.polygon.technology/ |
-| BNB Chain Faucet | Testnet (tBNB) | https://www.bnbchain.org/en/testnet-faucet |
-| Celo Faucet | Testnet (CELO Sepolia) | https://faucet.celo.org/ |
+Les douze réseaux marqués **Mainnet** sur la page faucet de Stakely, plus les
+pages officielles Polygon, BNB Chain et Celo. Montants relevés le 24/11/2026 sur
+chaque page réseau ; ils changent régulièrement.
 
-Les deux dernières entrées sont marquées **Testnet** : BNB Chain ne publie pas de
+| Réseau | Token | Montant / réclamation | Lien |
+| --- | --- | --- | --- |
+| Aptos | APT | 0.00088 APT | https://stakely.io/faucet/aptos-apt |
+| Arbitrum One | ETH | 0.000005 ETH | https://stakely.io/faucet/arbitrum-eth |
+| Base | ETH | 0.00001 ETH | https://stakely.io/faucet/base-eth |
+| Celo | CELO | 0.01 CELO | https://stakely.io/faucet/celo-celo |
+| Cosmos Hub | ATOM | 0.0025 ATOM | https://stakely.io/faucet/cosmos-atom |
+| Gnosis Chain | XDAI | 0.01 XDAI | https://stakely.io/faucet/gnosis-chain-xdai |
+| KuCoin Chain | KCS | 0.001 KCS | https://stakely.io/faucet/kucoin-kcs |
+| Osmosis | OSMO | 0.02 OSMO | https://stakely.io/faucet/osmosis-osmo |
+| Polygon PoS | POL | 0.01 POL | https://stakely.io/faucet/polygon-pol |
+| Secret Network | SCRT | 0.02 SCRT | https://stakely.io/faucet/secret-network-scrt |
+| Sui | SUI | 0.005 SUI | https://stakely.io/faucet/sui-sui |
+| Telos EVM | TLOS | 0.5 TLOS | https://stakely.io/faucet/telos-evm-tlos |
+| Polygon (officiel) | POL | — | https://faucet.polygon.technology/ |
+| BNB Chain (testnet) | tBNB | — | https://www.bnbchain.org/en/testnet-faucet |
+| Celo (officiel, testnet) | CELO Sepolia | — | https://faucet.celo.org/ |
+
+La page Stakely n'expose que ces douze réseaux en mainnet (le treizième,
+`/faucet/sui-testnet-sui`, est un testnet et n'est pas repris). Les entrées BNB
+Chain et Celo officiel sont marquées **Testnet** : BNB Chain ne publie pas de
 faucet mainnet, et la page Celo courante distribue du CELO de test. Le CELO
-mainnet reste accessible via la page Stakely dédiée, liée depuis la carte.
+mainnet passe par la page Stakely, liée depuis la carte Celo.
 
 ## Mettre à jour un lien
 

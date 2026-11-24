@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mainnet Faucet Aggregator · liens directs vers les faucets officiels</title>
-<meta name="description" content="Annuaire minimaliste de liens directs vers les pages de réclamation des faucets officiels : Stakely, Polygon (POL), BNB Chain, Celo. Aucun lien de staking, aucune redirection." />
+<meta name="description" content="Annuaire de liens directs vers les faucets mainnet officiels : les 12 réseaux Stakely (POL, CELO, SUI, ATOM, APT, ETH sur Base et Arbitrum, XDAI, KCS, OSMO, SCRT, TLOS), Polygon, BNB Chain, Celo. Aucun lien de staking." />
 <meta name="color-scheme" content="light dark" />
 <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#080c14" media="(prefers-color-scheme: dark)" />
@@ -265,7 +265,7 @@
     display:flex;align-items:center;justify-content:space-between;gap:10px;
     margin-top:auto;padding-top:12px;border-top:1px solid var(--border);
   }
-  .host{font-size:11.5px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .host{font-size:11.5px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.35;overflow-wrap:anywhere}
   .copy{
     flex:none;display:inline-flex;align-items:center;gap:6px;
     font:inherit;font-size:11.5px;font-weight:600;
@@ -364,7 +364,7 @@
     <section class="hero">
       <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Annuaire vérifié</p>
       <h1>Les faucets mainnet,<br /><span class="grad">sans détour</span>.</h1>
-      <p class="lede">Quatre liens, une seule intention : vous déposer sur la page de réclamation officielle. Pas de page de staking, pas de tunnel d'inscription, pas d'intermédiaire.</p>
+      <p class="lede">Les douze faucets mainnet de Stakely, plus les pages officielles Polygon, BNB Chain et Celo. Un clic, vous arrivez sur la page de réclamation — jamais sur une page de staking.</p>
 
       <div class="notice" role="note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5 11-11"/></svg>
@@ -374,11 +374,11 @@
 
     <section class="directory" id="faucets" aria-labelledby="dir-title">
       <div class="dir-head">
-        <h2 id="dir-title">Annuaire <span class="count" id="count">4 faucets</span></h2>
+        <h2 id="dir-title">Annuaire <span class="count" id="count">15 faucets</span></h2>
         <div class="controls">
           <label class="search">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-            <input id="q" type="search" placeholder="Filtrer : POL, CELO, BNB…" autocomplete="off" aria-label="Filtrer les faucets par chaîne ou token" />
+            <input id="q" type="search" placeholder="Filtrer : POL, SUI, ATOM…" autocomplete="off" aria-label="Filtrer les faucets par chaîne ou token" />
           </label>
           <div class="chips" role="group" aria-label="Filtrer par réseau">
             <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">Tous</button>
@@ -392,24 +392,174 @@
 
         <article class="card" data-network="mainnet">
           <div class="card-head">
-            <span class="mark" aria-hidden="true">S</span>
+            <span class="mark" aria-hidden="true">A</span>
             <div class="card-title">
-              <h3>Stakely Faucet</h3>
-              <p>Multi-chaînes · POL, CELO, ETH, ATOM…</p>
+              <h3>Aptos</h3>
+              <p>APT · faucet Stakely</p>
             </div>
             <span class="badge mainnet">Mainnet</span>
           </div>
-          <p class="blurb">Faucet multi-réseaux de Stakely. La page faucet est distincte de l'offre de staking du site : vous choisissez le réseau, vous réclamez, c'est tout.</p>
+          <p class="blurb">0.00088 APT par réclamation, pour le gas sur Aptos mainnet.</p>
           <ul class="links">
-            <li><a class="cta" href="https://stakely.io/faucet" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
-          </ul>
-          <ul class="links">
-            <li><a class="alt" href="https://stakely.io/faucet/polygon-pol" target="_blank" rel="noopener noreferrer nofollow">POL direct ↗</a></li>
-            <li><a class="alt" href="https://stakely.io/faucet/celo-celo" target="_blank" rel="noopener noreferrer nofollow">CELO direct ↗</a></li>
+            <li><a class="cta" href="https://stakely.io/faucet/aptos-apt" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
           </ul>
           <div class="card-foot">
-            <span class="host">stakely.io/faucet</span>
-            <button class="copy" type="button" data-copy="https://stakely.io/faucet" aria-label="Copier le lien Stakely">
+            <span class="host">stakely.io/faucet/aptos-apt</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/aptos-apt" aria-label="Copier le lien Aptos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">A</span>
+            <div class="card-title">
+              <h3>Arbitrum</h3>
+              <p>ETH · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.000005 ETH par réclamation, pour le gas sur Arbitrum One.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/arbitrum-eth" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/arbitrum-eth</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/arbitrum-eth" aria-label="Copier le lien Arbitrum">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">B</span>
+            <div class="card-title">
+              <h3>Base</h3>
+              <p>ETH · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.00001 ETH par réclamation, pour le gas sur Base.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/base-eth" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/base-eth</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/base-eth" aria-label="Copier le lien Base">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">C</span>
+            <div class="card-title">
+              <h3>Celo</h3>
+              <p>CELO · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.01 CELO par réclamation sur Celo mainnet.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/celo-celo" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/celo-celo</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/celo-celo" aria-label="Copier le lien Celo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">C</span>
+            <div class="card-title">
+              <h3>Cosmos Hub</h3>
+              <p>ATOM · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.0025 ATOM par réclamation sur Cosmos Hub.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/cosmos-atom" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/cosmos-atom</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/cosmos-atom" aria-label="Copier le lien Cosmos Hub">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">G</span>
+            <div class="card-title">
+              <h3>Gnosis Chain</h3>
+              <p>XDAI · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.01 XDAI par réclamation sur Gnosis Chain.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/gnosis-chain-xdai" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/gnosis-chain-xdai</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/gnosis-chain-xdai" aria-label="Copier le lien Gnosis Chain">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">K</span>
+            <div class="card-title">
+              <h3>KuCoin</h3>
+              <p>KCS · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.001 KCS par réclamation sur KuCoin Community Chain.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/kucoin-kcs" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/kucoin-kcs</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/kucoin-kcs" aria-label="Copier le lien KuCoin">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">O</span>
+            <div class="card-title">
+              <h3>Osmosis</h3>
+              <p>OSMO · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.02 OSMO par réclamation sur Osmosis.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/osmosis-osmo" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/osmosis-osmo</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/osmosis-osmo" aria-label="Copier le lien Osmosis">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
               Copier
             </button>
@@ -420,8 +570,96 @@
           <div class="card-head">
             <span class="mark" aria-hidden="true">P</span>
             <div class="card-title">
-              <h3>Polygon Faucet</h3>
-              <p>Polygon PoS · POL</p>
+              <h3>Polygon</h3>
+              <p>POL · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.01 POL par réclamation sur Polygon PoS, pour le gas.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/polygon-pol" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/polygon-pol</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/polygon-pol" aria-label="Copier le lien Polygon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">S</span>
+            <div class="card-title">
+              <h3>Secret Network</h3>
+              <p>SCRT · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.02 SCRT par réclamation sur Secret Network.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/secret-network-scrt" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/secret-network-scrt</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/secret-network-scrt" aria-label="Copier le lien Secret Network">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">S</span>
+            <div class="card-title">
+              <h3>Sui</h3>
+              <p>SUI · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.005 SUI par réclamation sur Sui mainnet.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/sui-sui" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/sui-sui</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/sui-sui" aria-label="Copier le lien Sui">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">T</span>
+            <div class="card-title">
+              <h3>Telos EVM</h3>
+              <p>TLOS · faucet Stakely</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">0.5 TLOS par réclamation sur Telos EVM.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet/telos-evm-tlos" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet/telos-evm-tlos</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet/telos-evm-tlos" aria-label="Copier le lien Telos EVM">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">P</span>
+            <div class="card-title">
+              <h3>Polygon (officiel)</h3>
+              <p>POL · faucet Polygon</p>
             </div>
             <span class="badge mainnet">Mainnet</span>
           </div>
@@ -434,7 +672,7 @@
           </ul>
           <div class="card-foot">
             <span class="host">faucet.polygon.technology</span>
-            <button class="copy" type="button" data-copy="https://faucet.polygon.technology/" aria-label="Copier le lien Polygon">
+            <button class="copy" type="button" data-copy="https://faucet.polygon.technology/" aria-label="Copier le lien Polygon (officiel)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
               Copier
             </button>
@@ -445,8 +683,8 @@
           <div class="card-head">
             <span class="mark" aria-hidden="true">B</span>
             <div class="card-title">
-              <h3>BNB Chain Faucet</h3>
-              <p>BNB Smart Chain · tBNB</p>
+              <h3>BNB Chain</h3>
+              <p>tBNB · faucet BNB Chain</p>
             </div>
             <span class="badge testnet">Testnet</span>
           </div>
@@ -467,8 +705,8 @@
           <div class="card-head">
             <span class="mark" aria-hidden="true">C</span>
             <div class="card-title">
-              <h3>Celo Faucet</h3>
-              <p>Celo · CELO Sepolia</p>
+              <h3>Celo (officiel)</h3>
+              <p>CELO Sepolia · faucet Celo</p>
             </div>
             <span class="badge testnet">Testnet</span>
           </div>
@@ -481,7 +719,7 @@
           </ul>
           <div class="card-foot">
             <span class="host">faucet.celo.org</span>
-            <button class="copy" type="button" data-copy="https://faucet.celo.org/" aria-label="Copier le lien Celo">
+            <button class="copy" type="button" data-copy="https://faucet.celo.org/" aria-label="Copier le lien Celo (officiel)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
               Copier
             </button>
@@ -499,6 +737,7 @@
       <ul>
         <li><strong>Vérifiez l'hôte</strong> — chaque carte affiche le domaine officiel en bas. Un faucet ne demande jamais votre phrase de récupération.</li>
         <li><strong>Regardez le réseau</strong> — un même faucet peut basculer entre mainnet et testnet : lisez le sélecteur avant de valider.</li>
+        <li><strong>Le parcours Stakely</strong> — adresse, captcha, puis partage public du request ID sur X. Aucun wallet connecté, aucun staking.</li>
         <li><strong>Attendez-vous à peu</strong> — un faucet mainnet distribue une fraction de token pour payer le gas, pas un solde utilisable.</li>
       </ul>
     </section>
@@ -507,8 +746,9 @@
 
 <footer>
   <div class="wrap foot-inner">
-    <p>Dernière vérification des liens : <time datetime="2026-11-24">24 novembre 2026</time>. Les faucets changent de règles, de réseaux et de limites sans préavis. Aucun wallet n'est connecté depuis cette page.</p>
+    <p>Liens et montants relevés le <time datetime="2026-11-24">24 novembre 2026</time>. Les faucets changent de règles, de réseaux et de limites sans préavis. Aucun wallet n'est connecté depuis cette page.</p>
     <div class="foot-links">
+      <a href="https://stakely.io/faucet" target="_blank" rel="noopener noreferrer nofollow">Tous les faucets Stakely</a>
       <a href="https://github.com/moonspiid/mainnet-faucet-aggregator" target="_blank" rel="noopener noreferrer">Code source</a>
       <a href="https://github.com/moonspiid/mainnet-faucet-aggregator/issues" target="_blank" rel="noopener noreferrer">Signaler un lien</a>
     </div>
