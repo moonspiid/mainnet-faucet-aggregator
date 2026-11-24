@@ -1,4 +1,4 @@
-const VERSION = "v2";
+const VERSION = "v3";
 const CACHE = "faucets-" + VERSION;
 const ROOT = new URL("./", self.location).href;
 const SHELL = ["", "index.html", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png", "icons/icon.svg"];
@@ -32,7 +32,7 @@ self.addEventListener("fetch", function (event) {
             return hit || Response.error();
           });
         };
-        return fetch(request).then(function (fresh) {
+        return fetch(request, { cache: "no-cache" }).then(function (fresh) {
           if (fresh && fresh.ok) {
             cache.put(new URL("index.html", ROOT).href, fresh.clone());
             return fresh;
