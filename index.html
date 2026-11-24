@@ -386,8 +386,8 @@
     footer{padding-bottom:74px}
     .to-top{width:40px;height:40px;right:14px;bottom:14px}
     .dir-head{align-items:stretch}
-    .controls{width:100%}
-    .search{flex:1}
+    .controls{width:100%;justify-content:space-between}
+    .search{flex:1 1 100%}
     .search input{width:100%}
   }
 </style>
@@ -443,9 +443,6 @@
         <div class="dir-title">
           <h2 id="dir-title">Directory <span class="count mainnet" id="count-mainnet">34 mainnet</span> <span class="count testnet" id="count-testnet">11 testnet</span></h2>
           <span class="checked" id="checked" hidden></span>
-          <button class="btn icon refresh" id="refresh" type="button" title="Ask every faucet on the page for an answer, from your browser" aria-label="Check that the faucets still answer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.5V9h-4.5"/></svg>
-          </button>
         </div>
         <div class="controls">
           <label class="search">
@@ -457,6 +454,9 @@
             <button class="chip" type="button" data-filter="mainnet" aria-pressed="false">Mainnet</button>
             <button class="chip" type="button" data-filter="testnet" aria-pressed="false">Testnet</button>
           </div>
+          <button class="btn icon refresh" id="refresh" type="button" title="Ask every faucet on the page for an answer, from your browser" aria-label="Check that the faucets still answer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.5V9h-4.5"/></svg>
+          </button>
         </div>
       </div>
 
