@@ -66,7 +66,7 @@ It then runs in its own window and keeps the full directory available offline.
 
 ## How it works
 
-- `index.html` — the whole page: hero, card grid, filters, donation section, footer, and one inline script for the theme, the counters and the copy buttons.
+- `index.html` — the whole page: hero, card grid, filters, footer, and one inline script for the theme, the counters and the copy buttons.
 - `tools/faucets.json` — the data: one object per faucet with `name`, `token`, `provider`, `amount`, `url`, `host`, `network`, `status`, and optionally `note` and `extra` links.
 - `tools/build.py` — rewrites the grid between `<!-- grid:start -->` and `<!-- grid:end -->` from that JSON, and refreshes the two counters. Standard library only; `python3 tools/build.py`.
 - `sw.js` — the service worker: cache-first for the shell, revalidation of navigations so a new deploy is picked up. Bump `VERSION` when the page changes.
@@ -93,7 +93,7 @@ Built and maintained by **[moonspiid](https://github.com/moonspiid)**: the fauce
 
 ## Support this project
 
-The site is free, has no account, no ads and no tracking, and there is no paid tier to upsell. If it saves you time, a donation pays for the hours behind it and the next features.
+The site is free, has no account, no ads and no tracking, and there is no paid tier to upsell. If it saves you time, a donation pays for the hours behind it and the next features. The heart icon in the site footer points back to this section — the donation lives here, not on the page.
 
 **Donate in USDT →** one crypto address, no card, no account, no payment processor in between.
 

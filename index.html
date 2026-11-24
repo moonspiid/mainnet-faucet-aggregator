@@ -329,14 +329,9 @@
   }
   .socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
   .socials svg{width:15px;height:15px;fill:currentColor}
+  .socials a.donate{color:#e0a800;border-color:color-mix(in srgb,#e0a800 45%,transparent);background:rgba(224,168,0,.10)}
+  .socials a.donate:hover{color:#e0a800;border-color:#e0a800}
 
-  .btn-donate{
-    gap:6px;text-decoration:none;
-    border-color:color-mix(in srgb,var(--warn) 45%,transparent);
-    background:var(--warn-soft);color:var(--warn);font-weight:700;
-  }
-  .btn-donate:hover{color:var(--warn);border-color:var(--warn)}
-  #support{scroll-margin-top:76px}
   .to-top{
     position:fixed;right:20px;bottom:20px;z-index:45;
     width:44px;height:44px;display:grid;place-items:center;
@@ -373,25 +368,15 @@
     .hero{padding-top:38px}
     .top-inner{min-height:58px}
     .brand small{display:none}
+    .brand{min-width:0}
+    .brand strong{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    footer{padding-bottom:74px}
+    .to-top{width:40px;height:40px;right:14px;bottom:14px}
     .dir-head{align-items:stretch}
     .controls{width:100%}
     .search{flex:1}
     .search input{width:100%}
   }
-  .donate{margin:26px 0 0;padding:26px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
-  .donate h2{margin:0 0 12px;font-size:18px;letter-spacing:-.01em}
-  .donate > p{margin:0 0 10px;font-size:13.5px;color:var(--muted);max-width:62ch}
-  .donate strong{color:var(--text)}
-  .donate-grid{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-top:14px}
-  .qr{margin:0;flex:none;display:flex;flex-direction:column;align-items:center;gap:6px}
-  .qr img{width:132px;height:132px;padding:8px;border-radius:12px;background:#fff;border:1px solid var(--border)}
-  .qr figcaption{font-size:11px;color:var(--muted)}
-  .donate-body{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:10px}
-  .addr{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-    padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--surface-2)}
-  .addr code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--text);overflow-wrap:anywhere}
-  .donate .small{font-size:12.5px}
-  .donate .rules{font-size:12.5px;margin:0}
 </style>
 </head>
 <body>
@@ -416,10 +401,6 @@
       </span>
     </a>
     <div class="top-actions">
-      <a class="btn btn-donate" href="#support">
-        <span aria-hidden="true">💛</span>
-        Donate
-      </a>
       <button class="btn" id="install" hidden>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
         Install
@@ -1480,29 +1461,6 @@
       </ul>
     </section>
 
-    <section class="donate" id="support" aria-labelledby="donate-title">
-      <h2 id="donate-title">Support this project</h2>
-      <p>The site is free, has no account, no ads and no tracking, and there is no paid tier to upsell. If it saves you time, a donation pays for the hours behind it and the next features.</p>
-      <p><strong>Donate in USDT →</strong> one crypto address, no card, no account, no payment processor in between.</p>
-
-      <div class="donate-grid">
-        <figure class="qr">
-          <img src="donate-usdt-qr.png" alt="QR code of the EVM donation address" width="132" height="132" loading="lazy" decoding="async" />
-          <figcaption>Scan with any wallet app</figcaption>
-        </figure>
-        <div class="donate-body">
-          <div class="addr">
-            <code>0xA2700896E16BE762467D458F2b45260f8FAC9F3e</code>
-            <button class="copy" type="button" data-copy="0xA2700896E16BE762467D458F2b45260f8FAC9F3e" aria-label="Copy the donation address">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
-              Copy
-            </button>
-          </div>
-          <p class="small">This is a plain EVM address, so <strong>the same address works on every EVM network</strong>: BNB Smart Chain (BEP20), Ethereum (ERC20), Polygon, Arbitrum One, Base and Optimism, all in USDT.</p>
-          <p class="rules">Two rules: send <strong>USDT only</strong> (another token sent to this address cannot be recovered), and keep a little of the network's own coin (BNB, ETH, POL) in your wallet to pay the transfer fee. A non-EVM network such as Tron (TRC20) uses a different address format, so nothing sent there reaches this one.</p>
-        </div>
-      </div>
-    </section>
   </div>
 </main>
 
@@ -1518,6 +1476,9 @@
   <div class="wrap foot-bottom">
     <p class="copyright">© <span id="year">2026</span> moonspiid · Mainnet Faucet Aggregator. All rights reserved.</p>
     <ul class="socials">
+      <li><a class="donate" href="https://github.com/moonspiid/mainnet-faucet-aggregator/blob/main/README.md#support-this-project" target="_blank" rel="noopener noreferrer" aria-label="Donate in USDT (see the README)" title="Donate">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.4-4.6-9.5-9A5.4 5.4 0 0 1 12 6.4 5.4 5.4 0 0 1 21.5 12c-2.1 4.4-9.5 9-9.5 9Z"/></svg>
+      </a></li>
       <li><a href="https://x.com/moonspiid" target="_blank" rel="noopener noreferrer" aria-label="moonspiid on X (Twitter)" title="X">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a></li>
