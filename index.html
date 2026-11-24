@@ -171,6 +171,7 @@
   .dir-head{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;margin-bottom:22px}
   h2{margin:0;font-size:20px;letter-spacing:-.02em;font-weight:750}
   .dir-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0}
+  .dir-title h2{margin:0}
   .refresh{width:34px;height:34px;padding:0;flex:none;color:var(--muted)}
   .refresh:hover:not(:disabled){color:var(--accent);border-color:var(--accent)}
   .refresh svg{width:16px;height:16px}
@@ -440,10 +441,11 @@
     <section class="directory" id="faucets" aria-labelledby="dir-title">
       <div class="dir-head">
         <div class="dir-title">
+          <h2 id="dir-title">Directory <span class="count mainnet" id="count-mainnet">34 mainnet</span> <span class="count testnet" id="count-testnet">11 testnet</span></h2>
+          <span class="checked" id="checked" hidden></span>
           <button class="btn icon refresh" id="refresh" type="button" title="Ask every faucet on the page for an answer, from your browser" aria-label="Check that the faucets still answer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4.5V9h-4.5"/></svg>
           </button>
-          <h2 id="dir-title">Directory <span class="count mainnet" id="count-mainnet">34 mainnet</span> <span class="count testnet" id="count-testnet">11 testnet</span> <span class="checked" id="checked" hidden></span></h2>
         </div>
         <div class="controls">
           <label class="search">
