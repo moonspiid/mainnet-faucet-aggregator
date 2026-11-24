@@ -330,6 +330,29 @@
   .socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
   .socials svg{width:15px;height:15px;fill:currentColor}
 
+  .btn-donate{
+    gap:6px;text-decoration:none;
+    border-color:color-mix(in srgb,var(--warn) 45%,transparent);
+    background:var(--warn-soft);color:var(--warn);font-weight:700;
+  }
+  .btn-donate:hover{color:var(--warn);border-color:var(--warn)}
+  #support{scroll-margin-top:76px}
+  .to-top{
+    position:fixed;right:20px;bottom:20px;z-index:45;
+    width:44px;height:44px;display:grid;place-items:center;
+    border:1px solid var(--border-strong);border-radius:50%;
+    background:var(--surface);color:var(--text);cursor:pointer;
+    box-shadow:var(--shadow);
+    opacity:0;transform:translateY(12px);pointer-events:none;
+    transition:opacity .18s ease,transform .18s ease,border-color .15s ease,color .15s ease;
+  }
+  .to-top svg{width:19px;height:19px}
+  .to-top.show{opacity:1;transform:none;pointer-events:auto}
+  .to-top:hover{border-color:var(--accent);color:var(--accent)}
+  @media (prefers-reduced-motion: no-preference){
+    html{scroll-behavior:smooth}
+  }
+
   /* ---------- toast ---------- */
   .toast{
     position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);
@@ -393,6 +416,10 @@
       </span>
     </a>
     <div class="top-actions">
+      <a class="btn btn-donate" href="#support">
+        <span aria-hidden="true">💛</span>
+        Donate
+      </a>
       <button class="btn" id="install" hidden>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
         Install
@@ -1453,7 +1480,7 @@
       </ul>
     </section>
 
-    <section class="donate" aria-labelledby="donate-title">
+    <section class="donate" id="support" aria-labelledby="donate-title">
       <h2 id="donate-title">Support this project</h2>
       <p>The site is free, has no account, no ads and no tracking, and there is no paid tier to upsell. If it saves you time, a donation pays for the hours behind it and the next features.</p>
       <p><strong>Donate in USDT →</strong> one crypto address, no card, no account, no payment processor in between.</p>
@@ -1500,6 +1527,10 @@
     </ul>
   </div>
 </footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5.5 11.5 6.5-6.5 6.5 6.5"/></svg>
+</button>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -1627,6 +1658,19 @@
       input.value = "";
       render();
     }
+  });
+
+  var toTop = document.getElementById("to-top");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function syncToTop() {
+    toTop.classList.toggle("show", window.scrollY > 600);
+  }
+  syncToTop();
+  window.addEventListener("scroll", syncToTop, { passive: true });
+
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
   });
 
   var installBtn = document.getElementById("install");

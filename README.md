@@ -32,6 +32,7 @@
 - [Install it as an app](#install-it-as-an-app)
 - [How it works](#how-it-works)
 - [Good to know](#good-to-know)
+- [Contributors](#contributors)
 - [Support this project](#support-this-project)
 
 ## Why
@@ -79,6 +80,16 @@ It then runs in its own window and keeps the full directory available offline.
 - BNB Chain keeps two entries: the Stakely mainnet page (0.00001 BNB) and the official testnet faucet (tBNB). Celo and Polygon work the same way, one card per source.
 - Faucets change networks, limits and rules without notice, so the amounts are a snapshot of the date shown in the footer.
 - A faucet never asks for a recovery phrase, and this page never connects a wallet.
+
+## Contributors
+
+<p>
+  <a href="https://github.com/moonspiid" title="moonspiid">
+    <img src="https://avatars.githubusercontent.com/moonspiid?s=96" alt="moonspiid" width="72" height="72">
+  </a>
+</p>
+
+Built and maintained by **[moonspiid](https://github.com/moonspiid)**: the faucet list, the check behind every amount, and the hours behind each release. Spotted a dead link or a network that is missing? Open an [issue](https://github.com/moonspiid/mainnet-faucet-aggregator/issues) and you join the list.
 
 ## Support this project
 

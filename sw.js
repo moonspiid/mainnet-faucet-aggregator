@@ -1,4 +1,4 @@
-const VERSION = "v6";
+const VERSION = "v7";
 const CACHE = "faucets-" + VERSION;
 const ROOT = new URL("./", self.location).href;
 const SHELL = ["", "index.html", "manifest.webmanifest", "donate-usdt-qr.png", "icons/icon-192.png", "icons/icon-512.png", "icons/icon.svg"];
