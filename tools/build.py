@@ -108,7 +108,7 @@ def main():
 
     HTML.write_text(html, encoding="utf-8")
     mainnet = sum(1 for item in items if item["network"] == "mainnet")
-    print("%d cartes (%d mainnet, %d testnet)" % (len(items), mainnet, len(items) - mainnet))
+    print("%d cards (%d mainnet, %d testnet)" % (len(items), mainnet, len(items) - mainnet))
 
 
 if __name__ == "__main__":
