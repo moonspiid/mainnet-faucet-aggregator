@@ -58,6 +58,19 @@ mainnet passe par la page Stakely, liée depuis la carte Celo.
 4. Incrémenter `VERSION` dans `sw.js` pour que les visiteurs récupèrent la
    nouvelle version du cache.
 
+Les compteurs « N mainnet » et « N testnet » à côté du titre sont calculés au
+chargement à partir de `data-network` : ajouter ou retirer une carte met les
+compteurs à jour sans autre intervention. L'année du copyright suit l'horloge du
+visiteur.
+
+## Réseaux sociaux
+
+Le pied de page affiche X et GitHub, les deux liens vérifiés sur le profil
+`moonspiid`. Pour en ajouter un, copier un `<li>` du bloc `<ul class="socials">`
+et remplacer le `href`, l'`aria-label` et le tracé SVG (24 × 24, `fill`
+hérité de `currentColor`). Ajouter Telegram, Discord ou YouTube revient donc à
+une ligne par réseau.
+
 ## Publier sur GitHub Pages
 
 ```bash

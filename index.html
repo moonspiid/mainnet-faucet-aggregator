@@ -171,10 +171,12 @@
   .dir-head{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;margin-bottom:22px}
   h2{margin:0;font-size:20px;letter-spacing:-.02em;font-weight:750}
   .count{
-    display:inline-block;margin-left:8px;font-size:12px;font-weight:600;
+    display:inline-block;margin-left:6px;font-size:12px;font-weight:600;
     color:var(--muted);background:var(--surface);border:1px solid var(--border);
     padding:2px 8px;border-radius:999px;vertical-align:2px;
   }
+  .count.mainnet{color:var(--accent-2);border-color:color-mix(in srgb,var(--accent-2) 32%,transparent);background:var(--accent-soft)}
+  .count.testnet{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 32%,transparent);background:var(--warn-soft)}
   .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
   .search{position:relative;display:block}
   .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted);pointer-events:none}
@@ -298,6 +300,20 @@
   .foot-links{display:flex;gap:14px;font-size:12.5px}
   .foot-links a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
   .foot-links a:hover{color:var(--accent);border-bottom-color:currentColor}
+  .foot-bottom{
+    display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+    margin-top:20px;padding-top:16px;border-top:1px solid var(--border);
+  }
+  .copyright{margin:0;font-size:12.5px;color:var(--muted)}
+  .socials{display:flex;gap:8px;margin:0;padding:0;list-style:none}
+  .socials a{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:9px;
+    border:1px solid var(--border);background:var(--surface);color:var(--muted);
+    transition:color .15s ease,border-color .15s ease,transform .15s ease;
+  }
+  .socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
+  .socials svg{width:15px;height:15px;fill:currentColor}
 
   /* ---------- toast ---------- */
   .toast{
@@ -374,7 +390,7 @@
 
     <section class="directory" id="faucets" aria-labelledby="dir-title">
       <div class="dir-head">
-        <h2 id="dir-title">Annuaire <span class="count" id="count">15 faucets</span></h2>
+        <h2 id="dir-title">Annuaire <span class="count mainnet" id="count-mainnet">13 mainnet</span> <span class="count testnet" id="count-testnet">2 testnet</span></h2>
         <div class="controls">
           <label class="search">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
@@ -753,6 +769,17 @@
       <a href="https://github.com/moonspiid/mainnet-faucet-aggregator/issues" target="_blank" rel="noopener noreferrer">Signaler un lien</a>
     </div>
   </div>
+  <div class="wrap foot-bottom">
+    <p class="copyright">© <span id="year">2026</span> Mainnet Faucet Aggregator. Tous droits réservés.</p>
+    <ul class="socials">
+      <li><a href="https://x.com/moonspiid" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) de moonspiid" title="X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a></li>
+      <li><a href="https://github.com/moonspiid" target="_blank" rel="noopener noreferrer" aria-label="GitHub de moonspiid" title="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.11c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.33.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.14c0 .3.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+      </a></li>
+    </ul>
+  </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -792,7 +819,8 @@
   });
 
   var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
-  var countEl = document.getElementById("count");
+  var countMainnet = document.getElementById("count-mainnet");
+  var countTestnet = document.getElementById("count-testnet");
   var emptyEl = document.getElementById("empty");
   var input = document.getElementById("q");
   var chips = Array.prototype.slice.call(document.querySelectorAll(".chip"));
@@ -814,9 +842,18 @@
       if (visible) shown++;
     });
 
-    countEl.textContent = shown + (shown > 1 ? " faucets" : " faucet");
     emptyEl.hidden = shown !== 0;
   }
+
+  function countByNetwork(name) {
+    return cards.filter(function (card) { return card.dataset.network === name; }).length;
+  }
+
+  countMainnet.textContent = countByNetwork("mainnet") + " mainnet";
+  countTestnet.textContent = countByNetwork("testnet") + " testnet";
+
+  var yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   input.addEventListener("input", render);
 
