@@ -14,47 +14,39 @@ manifest.webmanifest     métadonnées PWA (nom, icônes, couleurs)
 sw.js                    service worker (cache de la page + icônes)
 icons/                   icônes PNG + SVG (source vectorielle)
 tools/make-icons.py      génère les PNG depuis la géométrie de icon.svg
+tools/faucets.json       données de l'annuaire (nom, token, montant, lien, réseau)
+tools/build.py           régénère la grille de index.html depuis faucets.json
 ```
 
-Aucune dépendance, aucun build, aucun script tiers : le site s'ouvre tel quel.
+Le site publié ne dépend de rien : `index.html` est autonome et s'ouvre tel
+quel. `tools/build.py` sert uniquement à réécrire la grille quand les données
+changent (bibliothèque standard uniquement).
 
 ## Annuaire actuel
 
-Les douze réseaux marqués **Mainnet** sur la page faucet de Stakely, plus les
-pages officielles Polygon, BNB Chain et Celo. Montants relevés le 24/11/2026 sur
-chaque page réseau ; ils changent régulièrement.
+45 faucets, tous relevés le 24/11/2026 : **34 mainnet** et **11 testnet**.
+Cela couvre les 42 pages de Stakely plus trois pages officielles (Polygon, BNB
+Chain, Celo). La liste Stakely vient de `stakely.io/sitemap.xml`, qui expose les
+42 pages `/faucet/<réseau>-<token>` ; chacune a été ouverte pour relever le
+montant affiché (« You will get… ») et son état.
 
-| Réseau | Token | Montant / réclamation | Lien |
-| --- | --- | --- | --- |
-| Aptos | APT | 0.00088 APT | https://stakely.io/faucet/aptos-apt |
-| Arbitrum One | ETH | 0.000005 ETH | https://stakely.io/faucet/arbitrum-eth |
-| Base | ETH | 0.00001 ETH | https://stakely.io/faucet/base-eth |
-| Celo | CELO | 0.01 CELO | https://stakely.io/faucet/celo-celo |
-| Cosmos Hub | ATOM | 0.0025 ATOM | https://stakely.io/faucet/cosmos-atom |
-| Gnosis Chain | XDAI | 0.01 XDAI | https://stakely.io/faucet/gnosis-chain-xdai |
-| KuCoin Chain | KCS | 0.001 KCS | https://stakely.io/faucet/kucoin-kcs |
-| Osmosis | OSMO | 0.02 OSMO | https://stakely.io/faucet/osmosis-osmo |
-| Polygon PoS | POL | 0.01 POL | https://stakely.io/faucet/polygon-pol |
-| Secret Network | SCRT | 0.02 SCRT | https://stakely.io/faucet/secret-network-scrt |
-| Sui | SUI | 0.005 SUI | https://stakely.io/faucet/sui-sui |
-| Telos EVM | TLOS | 0.5 TLOS | https://stakely.io/faucet/telos-evm-tlos |
-| Polygon (officiel) | POL | — | https://faucet.polygon.technology/ |
-| BNB Chain (testnet) | tBNB | — | https://www.bnbchain.org/en/testnet-faucet |
-| Celo (officiel, testnet) | CELO Sepolia | — | https://faucet.celo.org/ |
+La source de vérité est `tools/faucets.json` : un objet par faucet, avec
+`name`, `token`, `provider`, `amount`, `url`, `host`, `network`
+(`mainnet`/`testnet`), `status` (`active`/`inactive`) et éventuellement `note`
+et `extra` (liens secondaires). La page est générée à partir de ce fichier, donc
+les deux compteurs du titre restent justes automatiquement.
 
-La page Stakely n'expose que ces douze réseaux en mainnet (le treizième,
-`/faucet/sui-testnet-sui`, est un testnet et n'est pas repris). Les entrées BNB
-Chain et Celo officiel sont marquées **Testnet** : BNB Chain ne publie pas de
-faucet mainnet, et la page Celo courante distribue du CELO de test. Le CELO
-mainnet passe par la page Stakely, liée depuis la carte Celo.
+Deux faucets sont marqués **inactif** au relevé (Ethereum mainnet, Solana
+mainnet) : la carte reste affichée, montant barré et bordure pointillée, pour
+éviter d'envoyer quelqu'un sur une page à sec sans prévenir.
 
 ## Mettre à jour un lien
 
-1. Ouvrir `index.html`, section `<div class="grid" id="grid">`.
-2. Chaque faucet est un `<article class="card" data-network="mainnet|testnet">`.
-   Modifier le `href` du lien principal, le libellé, la description et le
-   `<span class="host">` (domaine affiché en bas de carte).
-3. Mettre à jour la date de vérification dans le pied de page.
+1. Éditer `tools/faucets.json` : ajouter, retirer ou corriger une entrée.
+2. Lancer `python3 tools/build.py` : la grille entre `<!-- grid:start -->` et
+   `<!-- grid:end -->` est réécrite, ainsi que les compteurs du titre. Le reste
+   de `index.html` (CSS, JS, textes) n'est pas touché.
+3. Mettre à jour la date de relevé dans le pied de page.
 4. Incrémenter `VERSION` dans `sw.js` pour que les visiteurs récupèrent la
    nouvelle version du cache.
 
