@@ -89,7 +89,7 @@ It then runs in its own window and keeps the full directory available offline.
   </a>
 </p>
 
-Built and maintained by **[moonspiid](https://github.com/moonspiid)**: the faucet list, the check behind every amount, and the hours behind each release. Spotted a dead link or a network that is missing? Open an [issue](https://github.com/moonspiid/mainnet-faucet-aggregator/issues) and you join the list.
+Built and maintained by **[moonspiid](https://github.com/moonspiid)**, who owns this repository: the faucet list, the check behind every amount, and the hours behind each release. Spotted a dead link or a network that is missing? Open an [issue](https://github.com/moonspiid/mainnet-faucet-aggregator/issues) and you join the list.
 
 ## Support this project
 
