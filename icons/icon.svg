@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Mainnet Faucet Aggregator">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#0d1a2b"/>
+      <stop offset="1" stop-color="#060b14"/>
+    </linearGradient>
+    <linearGradient id="drop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.55" r="0.5">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="256" cy="286" r="168" fill="url(#glow)"/>
+  <path d="M256 96c72 84 128 152 128 220a128 128 0 1 1-256 0c0-68 56-136 128-220Z" fill="url(#drop)"/>
+  <path d="M256 250v128m0 0-46-46m46 46 46-46" fill="none" stroke="#04121a" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

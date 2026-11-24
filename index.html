@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mainnet Faucet Aggregator · liens directs vers les faucets officiels</title>
+<meta name="description" content="Annuaire minimaliste de liens directs vers les pages de réclamation des faucets officiels : Stakely, Polygon (POL), BNB Chain, Celo. Aucun lien de staking, aucune redirection." />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#080c14" media="(prefers-color-scheme: dark)" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Faucets" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Mainnet Faucet Aggregator" />
+<meta property="og:title" content="Mainnet Faucet Aggregator" />
+<meta property="og:description" content="Liens directs vers les faucets officiels. Pas de staking, pas d'intermédiaire." />
+<meta property="og:image" content="icons/icon-512.png" />
+<meta name="twitter:card" content="summary" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+
+  :root{
+    --bg:#f4f7fb;
+    --surface:#ffffff;
+    --surface-2:#f7fafc;
+    --text:#0b1424;
+    --muted:#5b6b85;
+    --border:#e3e9f2;
+    --border-strong:#c9d5e6;
+    --accent:#0e7490;
+    --accent-2:#0f766e;
+    --accent-soft:rgba(14,116,144,.10);
+    --warn:#a16207;
+    --warn-soft:rgba(161,98,7,.10);
+    --shadow:0 1px 2px rgba(11,20,36,.05),0 12px 28px -18px rgba(11,20,36,.35);
+    --radius:16px;
+    --max:1080px;
+    --ring:0 0 0 3px rgba(14,116,144,.35);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#080c14;
+      --surface:#0d1420;
+      --surface-2:#0a111c;
+      --text:#e8eef8;
+      --muted:#93a3ba;
+      --border:#1b2738;
+      --border-strong:#2a3a52;
+      --accent:#22d3ee;
+      --accent-2:#34d399;
+      --accent-soft:rgba(34,211,238,.12);
+      --warn:#fbbf24;
+      --warn-soft:rgba(251,191,36,.12);
+      --shadow:0 1px 0 rgba(255,255,255,.03) inset,0 18px 40px -24px rgba(0,0,0,.9);
+      --ring:0 0 0 3px rgba(34,211,238,.35);
+    }
+  }
+
+  :root[data-theme="dark"]{
+    --bg:#080c14;
+    --surface:#0d1420;
+    --surface-2:#0a111c;
+    --text:#e8eef8;
+    --muted:#93a3ba;
+    --border:#1b2738;
+    --border-strong:#2a3a52;
+    --accent:#22d3ee;
+    --accent-2:#34d399;
+    --accent-soft:rgba(34,211,238,.12);
+    --warn:#fbbf24;
+    --warn-soft:rgba(251,191,36,.12);
+    --shadow:0 1px 0 rgba(255,255,255,.03) inset,0 18px 40px -24px rgba(0,0,0,.9);
+    --ring:0 0 0 3px rgba(34,211,238,.35);
+  }
+
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background:
+      radial-gradient(58% 42% at 10% -8%, var(--accent-soft), transparent 70%),
+      radial-gradient(46% 38% at 92% -4%, rgba(52,211,153,.10), transparent 70%);
+  }
+
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+
+  .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:20px}
+  .skip{
+    position:absolute;left:-9999px;top:8px;z-index:50;
+    background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;
+  }
+  .skip:focus{left:20px}
+
+  /* ---------- header ---------- */
+  .top{
+    position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .top-inner{display:flex;align-items:center;gap:16px;justify-content:space-between;min-height:64px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;padding:8px 0}
+  .brand svg{width:32px;height:32px;flex:none}
+  .brand strong{display:block;font-size:14.5px;letter-spacing:-.01em;line-height:1.25}
+  .brand small{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+  .top-actions{display:flex;align-items:center;gap:8px}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font:inherit;font-size:13.5px;font-weight:600;
+    padding:9px 14px;border-radius:10px;border:1px solid var(--border-strong);
+    background:var(--surface);color:var(--text);cursor:pointer;
+    transition:background .15s ease,border-color .15s ease,transform .15s ease;
+  }
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn[hidden]{display:none}
+  .btn.icon{padding:9px;width:38px;height:38px}
+  .btn svg{width:17px;height:17px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:56px 0 8px;max-width:760px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);
+    border:1px solid var(--border-strong);background:var(--surface);
+    padding:6px 11px;border-radius:999px;margin:0 0 20px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 3px var(--accent-soft)}
+  h1{
+    margin:0 0 16px;
+    font-size:clamp(30px,5.2vw,46px);
+    line-height:1.08;
+    letter-spacing:-.03em;
+    font-weight:800;
+  }
+  h1 .grad{
+    background:linear-gradient(92deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lede{margin:0;font-size:clamp(15px,1.6vw,17.5px);color:var(--muted);max-width:60ch}
+
+  .notice{
+    display:flex;gap:12px;align-items:flex-start;
+    margin-top:26px;padding:14px 16px;
+    border:1px solid var(--border);border-left:3px solid var(--accent-2);
+    border-radius:12px;background:var(--surface);
+  }
+  .notice svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--accent-2)}
+  .notice p{margin:0;font-size:14px;color:var(--muted)}
+  .notice strong{color:var(--text)}
+
+  /* ---------- directory ---------- */
+  .directory{padding:52px 0 8px}
+  .dir-head{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;margin-bottom:22px}
+  h2{margin:0;font-size:20px;letter-spacing:-.02em;font-weight:750}
+  .count{
+    display:inline-block;margin-left:8px;font-size:12px;font-weight:600;
+    color:var(--muted);background:var(--surface);border:1px solid var(--border);
+    padding:2px 8px;border-radius:999px;vertical-align:2px;
+  }
+  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .search{position:relative;display:block}
+  .search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted);pointer-events:none}
+  .search input{
+    font:inherit;font-size:14px;
+    width:min(300px,72vw);
+    padding:10px 12px 10px 36px;
+    color:var(--text);background:var(--surface);
+    border:1px solid var(--border-strong);border-radius:10px;
+    transition:border-color .15s ease,box-shadow .15s ease;
+  }
+  .search input::placeholder{color:var(--muted)}
+  .search input:focus{outline:none;border-color:var(--accent);box-shadow:var(--ring)}
+  .chips{display:flex;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:3px}
+  .chip{
+    font:inherit;font-size:13px;font-weight:600;
+    padding:7px 12px;border:0;border-radius:8px;
+    background:transparent;color:var(--muted);cursor:pointer;
+    transition:background .15s ease,color .15s ease;
+  }
+  .chip:hover{color:var(--text)}
+  .chip.is-active{background:var(--accent-soft);color:var(--accent)}
+
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+  .card{
+    display:flex;flex-direction:column;gap:14px;
+    padding:20px;
+    border:1px solid var(--border);border-radius:var(--radius);
+    background:linear-gradient(180deg,var(--surface),var(--surface-2));
+    box-shadow:var(--shadow);
+    transition:transform .18s ease,border-color .18s ease;
+  }
+  .card:hover{transform:translateY(-2px);border-color:var(--border-strong)}
+  .card[hidden]{display:none}
+  .card-head{display:flex;align-items:flex-start;gap:12px}
+  .mark{
+    width:40px;height:40px;flex:none;border-radius:11px;
+    display:grid;place-items:center;
+    font-size:16px;font-weight:800;letter-spacing:-.02em;
+    color:#fff;background:linear-gradient(140deg,var(--accent),var(--accent-2));
+    box-shadow:0 6px 16px -10px var(--accent);
+  }
+  :root[data-theme="dark"] .mark{color:#04121a}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .mark{color:#04121a}
+  }
+  :root[data-theme="dark"] .cta{color:#04121a}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .cta{color:#04121a}
+  }
+  .card-title{min-width:0;flex:1}
+  .card-title h3{margin:0;font-size:15.5px;letter-spacing:-.01em;line-height:1.3}
+  .card-title p{margin:2px 0 0;font-size:12.5px;color:var(--muted)}
+
+  .badge{
+    flex:none;font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+    padding:4px 8px;border-radius:999px;white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .badge.mainnet{color:var(--accent-2);background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent-2) 30%,transparent)}
+  .badge.testnet{color:var(--warn);background:var(--warn-soft);border-color:color-mix(in srgb,var(--warn) 30%,transparent)}
+
+  .blurb{margin:0;font-size:13.5px;color:var(--muted)}
+
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+  .links li{display:flex}
+  .links li:has(> .cta){flex:1 1 100%}
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;
+    padding:11px 14px;border-radius:10px;
+    font-size:13.5px;font-weight:700;text-decoration:none;
+    color:#fff;background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    transition:filter .15s ease,transform .15s ease;
+  }
+  .cta:hover{filter:brightness(1.08)}
+  .cta svg{width:14px;height:14px}
+  .alt{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:600;text-decoration:none;
+    padding:6px 10px;border-radius:8px;
+    border:1px solid var(--border-strong);color:var(--muted);
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .alt:hover{color:var(--accent);border-color:var(--accent)}
+
+  .card-foot{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-top:auto;padding-top:12px;border-top:1px solid var(--border);
+  }
+  .host{font-size:11.5px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .copy{
+    flex:none;display:inline-flex;align-items:center;gap:6px;
+    font:inherit;font-size:11.5px;font-weight:600;
+    padding:5px 9px;border-radius:7px;cursor:pointer;
+    color:var(--muted);background:transparent;border:1px solid var(--border-strong);
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .copy:hover{color:var(--accent);border-color:var(--accent)}
+  .copy svg{width:13px;height:13px}
+
+  .empty{margin:26px 0 0;font-size:14px;color:var(--muted)}
+  .empty[hidden]{display:none}
+
+  /* ---------- safety ---------- */
+  .safety{margin:56px 0 0;padding:26px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+  .safety h2{margin:0 0 14px}
+  .safety ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+  .safety li{position:relative;padding-left:22px;font-size:13.5px;color:var(--muted)}
+  .safety li::before{
+    content:"";position:absolute;left:0;top:7px;
+    width:9px;height:9px;border-radius:3px;
+    background:linear-gradient(140deg,var(--accent),var(--accent-2));
+  }
+  .safety strong{color:var(--text)}
+
+  /* ---------- footer ---------- */
+  footer{margin-top:56px;border-top:1px solid var(--border);padding:26px 0 44px}
+  .foot-inner{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+  .foot-inner p{margin:0;font-size:12.5px;color:var(--muted);max-width:62ch}
+  .foot-links{display:flex;gap:14px;font-size:12.5px}
+  .foot-links a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .foot-links a:hover{color:var(--accent);border-bottom-color:currentColor}
+
+  /* ---------- toast ---------- */
+  .toast{
+    position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);
+    padding:10px 16px;border-radius:999px;
+    background:var(--text);color:var(--bg);
+    font-size:13px;font-weight:600;
+    opacity:0;pointer-events:none;
+    transition:opacity .2s ease,transform .2s ease;
+    z-index:40;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none!important;animation:none!important}
+    .card:hover{transform:none}
+  }
+  @media (max-width:520px){
+    .hero{padding-top:38px}
+    .top-inner{min-height:58px}
+    .brand small{display:none}
+    .dir-head{align-items:stretch}
+    .controls{width:100%}
+    .search{flex:1}
+    .search input{width:100%}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#faucets">Aller à l'annuaire</a>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="./" aria-label="Mainnet Faucet Aggregator, accueil">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#22d3ee"/>
+            <stop offset="1" stop-color="#34d399"/>
+          </linearGradient>
+        </defs>
+        <path d="M12 2.2c3.7 4.3 6.7 7.8 6.7 11.3a6.7 6.7 0 1 1-13.4 0C5.3 10 8.3 6.5 12 2.2Z" fill="url(#brandGrad)"/>
+        <path d="M12 9.6v8.2m0 0-2.9-2.9M12 17.8l2.9-2.9" fill="none" stroke="#04121a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>
+        <strong>Mainnet Faucet Aggregator</strong>
+        <small>Liens directs · zéro staking</small>
+      </span>
+    </a>
+    <div class="top-actions">
+      <button class="btn" id="install" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Installer
+      </button>
+      <button class="btn icon" id="theme" type="button" aria-label="Changer de thème" title="Changer de thème">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" id="themeIcon"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Annuaire vérifié</p>
+      <h1>Les faucets mainnet,<br /><span class="grad">sans détour</span>.</h1>
+      <p class="lede">Quatre liens, une seule intention : vous déposer sur la page de réclamation officielle. Pas de page de staking, pas de tunnel d'inscription, pas d'intermédiaire.</p>
+
+      <div class="notice" role="note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5 11-11"/></svg>
+        <p><strong>Zéro staking.</strong> Aucun lien de délégation, de pool ou de rendement ne figure sur cette page. Si un site vous demande de staker pour débloquer une réclamation, ce n'est pas un faucet.</p>
+      </div>
+    </section>
+
+    <section class="directory" id="faucets" aria-labelledby="dir-title">
+      <div class="dir-head">
+        <h2 id="dir-title">Annuaire <span class="count" id="count">4 faucets</span></h2>
+        <div class="controls">
+          <label class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="q" type="search" placeholder="Filtrer : POL, CELO, BNB…" autocomplete="off" aria-label="Filtrer les faucets par chaîne ou token" />
+          </label>
+          <div class="chips" role="group" aria-label="Filtrer par réseau">
+            <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">Tous</button>
+            <button class="chip" type="button" data-filter="mainnet" aria-pressed="false">Mainnet</button>
+            <button class="chip" type="button" data-filter="testnet" aria-pressed="false">Testnet</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" id="grid">
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">S</span>
+            <div class="card-title">
+              <h3>Stakely Faucet</h3>
+              <p>Multi-chaînes · POL, CELO, ETH, ATOM…</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">Faucet multi-réseaux de Stakely. La page faucet est distincte de l'offre de staking du site : vous choisissez le réseau, vous réclamez, c'est tout.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://stakely.io/faucet" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <ul class="links">
+            <li><a class="alt" href="https://stakely.io/faucet/polygon-pol" target="_blank" rel="noopener noreferrer nofollow">POL direct ↗</a></li>
+            <li><a class="alt" href="https://stakely.io/faucet/celo-celo" target="_blank" rel="noopener noreferrer nofollow">CELO direct ↗</a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">stakely.io/faucet</span>
+            <button class="copy" type="button" data-copy="https://stakely.io/faucet" aria-label="Copier le lien Stakely">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="mainnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">P</span>
+            <div class="card-title">
+              <h3>Polygon Faucet</h3>
+              <p>Polygon PoS · POL</p>
+            </div>
+            <span class="badge mainnet">Mainnet</span>
+          </div>
+          <p class="blurb">Faucet officiel Polygon. Les montants servent au gas sur Polygon PoS : sélectionnez le réseau dans la page avant de réclamer.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://faucet.polygon.technology/" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <ul class="links">
+            <li><a class="alt" href="https://portal.polygon.technology/faucet" target="_blank" rel="noopener noreferrer nofollow">Portail Polygon ↗</a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">faucet.polygon.technology</span>
+            <button class="copy" type="button" data-copy="https://faucet.polygon.technology/" aria-label="Copier le lien Polygon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="testnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">B</span>
+            <div class="card-title">
+              <h3>BNB Chain Faucet</h3>
+              <p>BNB Smart Chain · tBNB</p>
+            </div>
+            <span class="badge testnet">Testnet</span>
+          </div>
+          <p class="blurb">Faucet officiel BNB Chain. La page distribue des tBNB de test : BNB Chain ne publie pas de faucet mainnet, donc rien à réclamer en BNB réel ici.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://www.bnbchain.org/en/testnet-faucet" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">bnbchain.org</span>
+            <button class="copy" type="button" data-copy="https://www.bnbchain.org/en/testnet-faucet" aria-label="Copier le lien BNB Chain">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+        <article class="card" data-network="testnet">
+          <div class="card-head">
+            <span class="mark" aria-hidden="true">C</span>
+            <div class="card-title">
+              <h3>Celo Faucet</h3>
+              <p>Celo · CELO Sepolia</p>
+            </div>
+            <span class="badge testnet">Testnet</span>
+          </div>
+          <p class="blurb">Faucet officiel Celo. La page courante sert du CELO de test (Celo Sepolia) ; pour du CELO mainnet, passez par la page Stakely dédiée.</p>
+          <ul class="links">
+            <li><a class="cta" href="https://faucet.celo.org/" target="_blank" rel="noopener noreferrer nofollow">Ouvrir le faucet<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></a></li>
+          </ul>
+          <ul class="links">
+            <li><a class="alt" href="https://stakely.io/faucet/celo-celo" target="_blank" rel="noopener noreferrer nofollow">CELO mainnet ↗</a></li>
+          </ul>
+          <div class="card-foot">
+            <span class="host">faucet.celo.org</span>
+            <button class="copy" type="button" data-copy="https://faucet.celo.org/" aria-label="Copier le lien Celo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M6.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1.5"/></svg>
+              Copier
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="empty" id="empty" hidden>Aucun faucet ne correspond à cette recherche.</p>
+      <noscript><p class="empty">Le filtre nécessite JavaScript ; tous les liens ci-dessus restent cliquables.</p></noscript>
+    </section>
+
+    <section class="safety" aria-labelledby="safety-title">
+      <h2 id="safety-title">Avant de réclamer</h2>
+      <ul>
+        <li><strong>Vérifiez l'hôte</strong> — chaque carte affiche le domaine officiel en bas. Un faucet ne demande jamais votre phrase de récupération.</li>
+        <li><strong>Regardez le réseau</strong> — un même faucet peut basculer entre mainnet et testnet : lisez le sélecteur avant de valider.</li>
+        <li><strong>Attendez-vous à peu</strong> — un faucet mainnet distribue une fraction de token pour payer le gas, pas un solde utilisable.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <p>Dernière vérification des liens : <time datetime="2026-11-24">24 novembre 2026</time>. Les faucets changent de règles, de réseaux et de limites sans préavis. Aucun wallet n'est connecté depuis cette page.</p>
+    <div class="foot-links">
+      <a href="https://github.com/moonspiid/mainnet-faucet-aggregator" target="_blank" rel="noopener noreferrer">Code source</a>
+      <a href="https://github.com/moonspiid/mainnet-faucet-aggregator/issues" target="_blank" rel="noopener noreferrer">Signaler un lien</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("theme");
+  var themeIcon = document.getElementById("themeIcon");
+  var SUN = '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>';
+  var MOON = '<path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"/>';
+
+  function applyTheme(theme) {
+    if (theme) {
+      root.dataset.theme = theme;
+    } else {
+      delete root.dataset.theme;
+    }
+    var isDark = theme === "dark" ||
+      (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    themeIcon.innerHTML = isDark ? SUN : MOON;
+    themeBtn.setAttribute("aria-label", isDark ? "Passer en thème clair" : "Passer en thème sombre");
+  }
+
+  var stored = null;
+  try { stored = localStorage.getItem("theme"); } catch (e) {}
+  applyTheme(stored);
+
+  themeBtn.addEventListener("click", function () {
+    var isDark = root.dataset.theme === "dark" ||
+      (!root.dataset.theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = isDark ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+  var countEl = document.getElementById("count");
+  var emptyEl = document.getElementById("empty");
+  var input = document.getElementById("q");
+  var chips = Array.prototype.slice.call(document.querySelectorAll(".chip"));
+  var network = "all";
+
+  function normalize(s) {
+    return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
+  function render() {
+    var needle = normalize(input.value.trim());
+    var shown = 0;
+
+    cards.forEach(function (card) {
+      var matchesNetwork = network === "all" || card.dataset.network === network;
+      var matchesText = !needle || normalize(card.textContent).indexOf(needle) !== -1;
+      var visible = matchesNetwork && matchesText;
+      card.hidden = !visible;
+      if (visible) shown++;
+    });
+
+    countEl.textContent = shown + (shown > 1 ? " faucets" : " faucet");
+    emptyEl.hidden = shown !== 0;
+  }
+
+  input.addEventListener("input", render);
+
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      network = chip.dataset.filter;
+      chips.forEach(function (c) {
+        var active = c === chip;
+        c.classList.toggle("is-active", active);
+        c.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+      render();
+    });
+  });
+
+  var toast = document.getElementById("toast");
+  var toastTimer;
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 1900);
+  }
+
+  document.addEventListener("click", function (event) {
+    var btn = event.target.closest(".copy");
+    if (!btn) return;
+    var url = btn.dataset.copy;
+    var done = function () { showToast("Lien copié"); };
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(done, function () { showToast(url); });
+      return;
+    }
+    var area = document.createElement("textarea");
+    area.value = url;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+    try { document.execCommand("copy"); done(); } catch (e) { showToast(url); }
+    document.body.removeChild(area);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "/" && document.activeElement !== input) {
+      event.preventDefault();
+      input.focus();
+    }
+    if (event.key === "Escape" && document.activeElement === input && input.value) {
+      input.value = "";
+      render();
+    }
+  });
+
+  var installBtn = document.getElementById("install");
+  var deferredPrompt = null;
+
+  window.addEventListener("beforeinstallprompt", function (event) {
+    event.preventDefault();
+    deferredPrompt = event;
+    installBtn.hidden = false;
+  });
+
+  installBtn.addEventListener("click", function () {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function () {
+      deferredPrompt = null;
+      installBtn.hidden = true;
+    });
+  });
+
+  window.addEventListener("appinstalled", function () {
+    installBtn.hidden = true;
+    showToast("Application installée");
+  });
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    });
+  }
+})();
+</script>
+</body>
+</html>
