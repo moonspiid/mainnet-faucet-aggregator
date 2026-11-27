@@ -88,16 +88,6 @@ It then runs in its own window and keeps the full directory available offline.
 - Faucets change networks, limits and rules without notice, so the amounts are a snapshot of the date shown in the footer.
 - A faucet never asks for a recovery phrase, and this page never connects a wallet.
 
-## Contributors
-
-<p>
-  <a href="https://github.com/moonspiid" title="moonspiid">
-    <img src="https://avatars.githubusercontent.com/moonspiid?s=96" alt="moonspiid" width="72" height="72">
-  </a>
-</p>
-
-Built and maintained by **[moonspiid](https://github.com/moonspiid)**, who owns this repository: the faucet list, the check behind every amount, and the hours behind each release. Spotted a dead link or a network that is missing? Open an [issue](https://github.com/moonspiid/mainnet-faucet-aggregator/issues) and you join the list.
-
 ## Support this project
 
 The site is free, has no account, no ads and no tracking, and there is no paid tier to upsell. If it saves you time, a donation pays for the hours behind it and the next features. The heart icon in the site footer points back to this section — the donation lives here, not on the page.
